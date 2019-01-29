@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,13 +13,69 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="currentLocation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnG-Ek-wuw">
+                                <rect key="frame" x="104" y="277" width="167" height="33"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
+                                <state key="normal" title="Get Current Location"/>
+                                <connections>
+                                    <action selector="getCurrentLocationTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QXN-mj-bbZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSx-4I-06P">
+                                <rect key="frame" x="101.5" y="330" width="72" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oJH-Ew-JXh">
+                                <rect key="frame" x="87.5" y="376" width="86" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lat" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHL-MP-sDf">
+                                <rect key="frame" x="197" y="330" width="19" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lWb-M7-btf">
+                                <rect key="frame" x="197.5" y="376" width="34" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="iiN-OE-tZP">
+                                <rect key="frame" x="64" y="283.5" width="20" height="20"/>
+                            </activityIndicatorView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="pSx-4I-06P" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-50" id="0Bw-Uk-yQ5"/>
+                            <constraint firstItem="lWb-M7-btf" firstAttribute="centerY" secondItem="oJH-Ew-JXh" secondAttribute="centerY" id="5Ai-T5-AQE"/>
+                            <constraint firstItem="bHL-MP-sDf" firstAttribute="leading" secondItem="pSx-4I-06P" secondAttribute="trailing" constant="23.5" id="6mK-iD-Rxe"/>
+                            <constraint firstItem="jnG-Ek-wuw" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-50" id="A0X-nk-eej"/>
+                            <constraint firstItem="lWb-M7-btf" firstAttribute="leading" secondItem="oJH-Ew-JXh" secondAttribute="trailing" constant="24" id="hgk-ef-jGo"/>
+                            <constraint firstItem="jnG-Ek-wuw" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="huj-Yz-HzY"/>
+                            <constraint firstItem="jnG-Ek-wuw" firstAttribute="leading" secondItem="iiN-OE-tZP" secondAttribute="trailing" constant="20" id="jLe-45-uHx"/>
+                            <constraint firstItem="iiN-OE-tZP" firstAttribute="centerY" secondItem="jnG-Ek-wuw" secondAttribute="centerY" id="qMu-8s-shY"/>
+                            <constraint firstItem="bHL-MP-sDf" firstAttribute="centerY" secondItem="pSx-4I-06P" secondAttribute="centerY" id="rkb-hC-HPH"/>
+                            <constraint firstItem="oJH-Ew-JXh" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-57" id="uEj-3W-gqq"/>
+                            <constraint firstItem="pSx-4I-06P" firstAttribute="top" secondItem="jnG-Ek-wuw" secondAttribute="bottom" constant="20" id="vjR-VZ-pBR"/>
+                            <constraint firstItem="oJH-Ew-JXh" firstAttribute="top" secondItem="pSx-4I-06P" secondAttribute="bottom" constant="25" id="zla-Ze-x2e"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="iiN-OE-tZP" id="gLl-y3-xfL"/>
+                        <outlet property="latitudeLabel" destination="bHL-MP-sDf" id="8gb-Hc-Mzh"/>
+                        <outlet property="longitudeLabel" destination="lWb-M7-btf" id="Y5q-mt-VuM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
